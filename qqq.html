@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="Cron.js"></script>
+		<script src="scheduler.js"></script>
+		<body>
+			ssss 
+		</body>
+<script>
+	var cycle = "1";//周期类型
+	
+	//第一种形式 cycle等于1：指定时间点			
+	var timePoint = "2020-04-01 15:50:27";//时间点
+	
+	//第二种形式 cycle等于2：以天为间隔
+	var startTime = "06:15:15";//开始时间
+	var endTime = "10:15:15";//结束时间
+	var hourFlag = false;//是否以分钟为间隔
+	var minuteFlag = true;//是否以分钟为间隔
+	var interValDay = 3;//间隔天数
+	var hourInterval = 4;//间隔小时数
+	var minuteInterval= 3;//间隔分钟数
+	
+	//第三种形式 cycle等于3：以周为间隔
+	var weekArray = ['2','4'];//指定每周周几
+	
+	//第四种形式 cycle等于4：以月为间隔
+	var MonthArray = [4,7];//指定那几个月份			
+	var day =21;//指定哪天
+	
+	//第五种形式 cycle等于5：指定表达式
+	var cron = "0/1 * * * * ? ";//Cron表达式				
+
+	var cronExpression = getCronExpression(timePoint,cron,startTime, cycle, hourFlag, minuteFlag, 
+							interValDay, endTime, hourInterval, minuteInterval,
+							weekArray, MonthArray, day);
+	console.log(cronExpression)
+
+</script>
+</html>
