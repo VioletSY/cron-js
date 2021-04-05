@@ -1,0 +1,27 @@
+{
+  "name": "cron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Cron-es6.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmsccc/cron-js.git"
+  },
+  "keywords": [
+    "cron"
+  ],
+  "author": "lmsccc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lmsccc/cron-js/issues"
+  },
+  "homepage": "https://github.com/lmsccc/cron-js#readme",
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}

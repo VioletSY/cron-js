@@ -1,6 +1,9 @@
+import SimpleTime from './SimpleTime';
+import Cron from './Cron-es6';
 
-function getCronExpression (onceTime,cron,startTime, cycle, hourFlag, minuteFlag, interValDay, endTime, hourInterval, minuteInterval, weekArray, MonthArray, day) {
-  var cronExpression = "";
+
+export function getCronExpression(onceTime, cron, startTime, cycle, hourFlag, minuteFlag, interValDay, endTime, hourInterval, minuteInterval, weekArray, MonthArray, day) {
+  let cronExpression = "";
   if (cycle == "1") {
     cronExpression = getCronByStartTime(onceTime);
   } else if (cycle == "5") {
@@ -13,9 +16,9 @@ function getCronExpression (onceTime,cron,startTime, cycle, hourFlag, minuteFlag
 
 //onlyOne
 function getCronByStartTime (startTime) {
-  var _startTime = new SimpleTime(startTime);
-  var cron = "";
-  cron = new Cron(startTime);
+  const _startTime = new SimpleTime(startTime);
+  let cron = "";
+  cron = new Cron(_startTime);
   return cron.toCron();
 }
 
@@ -30,14 +33,14 @@ function getCronBySelf (cron) {
 //getCronByTimePoint
 function getCronByTimePoint (timePoint, planType, hourFlag, minuteFlag, interValDay, endTime, hourInt, minuteInt, weekDayArr, selectMonth, day) {
   endTime = endTime || timePoint;
-  var cron = "";
+  let cron = "";
   if (planType == "2") {
     cron = createCronByTimePoint(timePoint, hourFlag, minuteFlag, endTime, hourInt, minuteInt);
     cron.set('day', 'setBase', '*');
     cron.set('day', 'inc', interValDay + "");
   } else if (planType == "3") {
 
-    var selectedDays = Cron.pack(weekDayArr);
+    let selectedDays = Cron.pack(weekDayArr);
     if (selectedDays == "") {
       selectedDays = "1-7";
     }
@@ -53,9 +56,9 @@ function getCronByTimePoint (timePoint, planType, hourFlag, minuteFlag, interVal
 }
 
 function createCronByTimePoint (timePoint, hourFlag, minuteFlag, endTime, hourInt, minuteInt) {
-  var cron = new Cron(timePoint);
+  const cron = new Cron(timePoint);
   if (endTime) {
-    var timeAry = endTime.split(":");
+    const timeAry = endTime.split(":");
     if (timeAry[0].charAt(0) == "0") {
       timeAry[0] = timeAry[0].charAt(1);
     }
